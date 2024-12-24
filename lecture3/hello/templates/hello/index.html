@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: auto;
+            max-width: 800px;
+            box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding-left: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button[type="submit"]#submit {
+            margin-bottom: 5px;
+            padding: 7px;
+            background-color: rgb(0, 194, 0);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            width: 80px;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px black;
+        }
+
+        button[type="submit"]#submit:hover {
+            background-color: rgb(2, 187, 2);
+            box-shadow: none;
+        }
+
+        input[type="number"] {
+            border: 0.1px double black;
+            border-radius: 10px;
+            padding: 4px;
+        }
+
+        input[type="number"]:focus {
+            box-shadow: 0px 0px 20px rgb(0, 102, 255);
+            transition: box-shadow 0.5s ease;
+        }
+
+        #result {
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>FaceBlog</h1>
+    <p>Welcome to FaceBlog</p>
+    <label for="Num1" id="num1">Number 1:</label>
+    <input type="number" id="num1-in" required>
+    <br><br>
+    <label for="Num1" id="num2">Number 2:</label>
+    <input type="number" id="num2-in" required>
+    <br>
+    <br>
+    <label for="Num1" id="mathw">Waht would you like it to do: </label>
+    <select name="dropdown" id="dropdown" required>
+        <option value="division">Divide</option>
+        <option value="multiplication">Multiply</option>
+        <option value="addition">Add</option>
+        <option value="subtraction">Subtract</option>
+    </select>
+    <br><br>
+    <button type="submit" id="submit" onclick="math()">Submit</button>
+    <p id="result"></p>
+
+    <script>
+        function math() {
+            const a = parseFloat(document.getElementById("num1-in").value); // Convert input to numbers
+            const b = parseFloat(document.getElementById("num2-in").value);
+            const dropdown = document.getElementById("dropdown");
+            const selectedValue = dropdown.value;
+            if (selectedValue == "division") {
+                if (b !== 0) {
+                    res1 = a / b;
+                    document.getElementById("result").textContent = "The result is " + res1
+                }
+
+                else {
+                    document.getElementById("result").textContent = "Error: Division by Zero"
+                }
+            }
+
+            else if (selectedValue == "multiplication") {
+                res2 = a * b
+                document.getElementById("result").textContent = "The result is " + res2
+            }
+
+            else if (selectedValue == "addition") {
+                res3 = a + b
+                document.getElementById("result").textContent = "The result is " + res3
+            }
+
+            else if (selectedValue == "subtraction") {
+                res4 = a - b
+                document.getElementById("result").textContent = "The result is " + res4
+            }
+
+            else {
+                document.getElementById("result").textContent = "Choose an option."
+            }
+        }
+    </script>
+</body>
+</html>

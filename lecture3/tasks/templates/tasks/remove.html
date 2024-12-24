@@ -1,0 +1,14 @@
+{% extends "tasks/layout.html" %}
+
+{% block content %}
+    <h1>Remove Task</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form action="{% url 'tasks:remove' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit">
+    </form>
+    <a href="{% url 'tasks:index' %}">View Tasks</a>
+{% endblock %}
